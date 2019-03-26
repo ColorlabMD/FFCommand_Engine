@@ -4,7 +4,7 @@ Preloaded with preset commands from  [amiaopensource/ffmprovisr](https://github
 
 This is the initial version of the software for public release.
 
-Version v0.5 available for Mac and pc in release tab.
+Version v0.5 available for Mac and pc in the [release]( https://github.com/ColorlabMD/FFCommand_Engine/releases) tab.
 
 The windows version may require msvc 2017 redistributable if it is not already installed. 
 
