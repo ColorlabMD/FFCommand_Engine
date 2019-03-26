@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>colorlab.png</file>
+    </qresource>
+</RCC>
