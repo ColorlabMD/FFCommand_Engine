@@ -24,17 +24,18 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QStandardPaths>
 
 QString getResourcesPath()
 {
 #if defined(Q_OS_WIN)
-    return QApplication::applicationDirPath() + "/";
+    return QCoreApplication::applicationDirPath() + "/";
 #elif defined(Q_OS_OSX)
-    return QApplication::applicationDirPath() + "/../Resources/";
+   return QStandardPaths::standardLocations(QStandardPaths::AppDataLocation)[0]; //return QCoreApplication::applicationDirPath() + "/../Resources/";
 #elif defined(Q_OS_LINUX)
-    return QApplication::applicationDirPath() + "/../share/yourapplication/";
+    return QCoreApplication::applicationDirPath() + "/../share/yourapplication/";
 #else
-    return QApplication::applicationDirPath() + "/";
+    return QCoreApplication::applicationDirPath() + "/";
 #endif
 }
 
@@ -43,7 +44,18 @@ QFE_Window::QFE_Window(QWidget *parent) :
     ui(new Ui::QFE_Window)
 {
     ui->setupUi(this);
+if (!QDir(getResourcesPath()).exists())
+     {
+    QDir().mkdir(getResourcesPath());
+     QDir().mkdir(getResourcesPath()+"/Presets");
+     QFile::copy(QCoreApplication::applicationDirPath() + "/../Resources/ffmpeglocation.txt", getResourcesPath()+"/ffmpeglocation.txt");
+         QFile::copy(QCoreApplication::applicationDirPath() + "/../Resources/Presets/ffmprovisr.txt", getResourcesPath()+"/Presets/ffmprovisr.txt");
+         QFile::copy(QCoreApplication::applicationDirPath() + "/../Resources/Presets/user.txt", getResourcesPath()+"/Presets/user.txt");
 
+
+
+}
+      qDebug()<<getResourcesPath();
     ui->param_table->setSelectionBehavior(ui->param_table->SelectRows);
     ui->param_table->setSelectionMode(ui->param_table->SingleSelection);
     ui->param_table->setDragDropMode(ui->param_table->InternalMove);
@@ -143,13 +155,14 @@ anyrunning=true;
 void QFE_Window::loadpresetmenu()
 {
     ui->menuPresets->clear();
-    QDir directory(getResourcesPath()+"Presets");
+    QDir directory(getResourcesPath()+"/Presets");
     QStringList psets = directory.entryList(QStringList() << "*.txt",QDir::Files);
     foreach(QString filename, psets) {
         //do whatever you need to do
 
         //********************************** Start Menu
         QFile filep(directory.path()+"/"+filename);
+
         if(!filep.open(QIODevice::ReadOnly)) {
             QMessageBox::information(0, "error", filep.errorString());
         }
@@ -897,7 +910,7 @@ void QFE_Window::on_kill_all_btn_clicked()
 void QFE_Window::on_save_pset_btn_clicked()
 {
     PresetSaveDialog* t =new PresetSaveDialog();
-    QDir directory(getResourcesPath()+"Presets");
+    QDir directory(getResourcesPath()+"/Presets");
     QStringList psets = directory.entryList(QStringList() << "*.txt",QDir::Files);
     t->setup(psets);
 
@@ -907,6 +920,7 @@ void QFE_Window::on_save_pset_btn_clicked()
 
         generate_ffmpeg_command();
         QFile filepc(getResourcesPath()+"/Presets/"+t->file);
+        filepc.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
         if(!filepc.open(QIODevice::Append)) {
             QMessageBox::information(0, "error", filepc.errorString());
         }
@@ -1030,6 +1044,7 @@ void QFE_Window::on_actionSet_FFmpeg_Dir_triggered()
     {
         ffmpeglocation=d.location;
         QFile filepc(getResourcesPath()+"/"+"ffmpeglocation.txt");
+        filepc.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner);
         if(!filepc.open(QIODevice::WriteOnly)) {
             QMessageBox::information(0, "error", filepc.errorString());
         }
