@@ -1,6 +1,6 @@
 ## FFCommand Engine for easier use of FFmpeg binaries.
 
-Preloaded with preset commands from  [amiaopensource /ffmprovisr](https://github.com/amiaopensource/ffmprovisr)
+Preloaded with preset commands from  [amiaopensource/ffmprovisr](https://github.com/amiaopensource/ffmprovisr)
 
 This is the initial version of the software for public release.
 
