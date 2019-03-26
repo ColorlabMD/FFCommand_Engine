@@ -68,7 +68,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 win32:DISTFILES +=  FFCommand_Engine.rc
-
+ICON = FFCommand_Engine.icns
 RESOURCES += \
     images.qrc
 
