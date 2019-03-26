@@ -26,7 +26,7 @@
 #include <QTreeView>
 #include <QMenuBar>
 #include <QFileDialog>
-#include "dommodel.h"
+
 #include "qjsonmodel.h"
 #include <QStandardItemModel>
 #include "outputfileform.h"
