@@ -6,7 +6,7 @@ This is the initial version of the software for public release.
 
 Version v0.5 available for Mac and pc in release tab.
 
-The windows version may requires msvc 2017 redistributable if it is not already installed. 
+The windows version may require msvc 2017 redistributable if it is not already installed. 
 
 It is available here: [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
 
