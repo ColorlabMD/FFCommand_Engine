@@ -274,10 +274,8 @@ QVariant QJsonModel::headerData(int section, Qt::Orientation orientation, int ro
     if (role != Qt::DisplayRole)
         return QVariant();
 
-    if (orientation == Qt::Horizontal) {
-
+    if (orientation == Qt::Horizontal)
         return mHeaders.value(section);
-    }
     else
         return QVariant();
 }
@@ -343,11 +341,10 @@ Qt::ItemFlags QJsonModel::flags(const QModelIndex &index) const
     auto isArray = QJsonValue::Array == item->type();
     auto isObject = QJsonValue::Object == item->type();
 
-    if ((col == 1) && !(isArray || isObject)) {
+    if ((col == 1) && !(isArray || isObject))
         return Qt::ItemIsEditable | QAbstractItemModel::flags(index);
-    } else {
+    else
         return QAbstractItemModel::flags(index);
-    }
 }
 
 QJsonDocument QJsonModel::json() const
@@ -356,11 +353,10 @@ QJsonDocument QJsonModel::json() const
     auto v = genJson(mRootItem);
     QJsonDocument doc;
 
-    if (v.isObject()) {
+    if (v.isObject())
         doc = QJsonDocument(v.toObject());
-    } else {
+    else
         doc = QJsonDocument(v.toArray());
-    }
 
     return doc;
 }
