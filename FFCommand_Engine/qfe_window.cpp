@@ -989,9 +989,6 @@ void QFE_Window::queuestatechanged()
 
         }
     }
-    else {
-
-    }
     pq->enqueue(ffinstances);
 
 }
