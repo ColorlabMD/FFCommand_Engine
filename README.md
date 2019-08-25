@@ -39,7 +39,7 @@ It is available here: [https://support.microsoft.com/en-us/help/2977003/the-late
 
 2. Start FFCommand_Engine
 
-3. Set FFmpeg binaries location. File-&gt;Set FFmpeg Dir ( mac uses default /usr/local/bin most users will not need to change)
+3. Set FFmpeg binaries location. File-&gt;Set FFmpeg Dir (mac uses default /usr/local/bin most users will not need to change)
 
 4. Load a preset or copy and paste a command using the parse command button.
 
@@ -55,7 +55,7 @@ It is available here: [https://support.microsoft.com/en-us/help/2977003/the-late
 
 2. Check “Batch Mode” checkbox
 
-3. Set Ouput Directory
+3. Set Output Directory
 
 4. Set output file name appending
 
