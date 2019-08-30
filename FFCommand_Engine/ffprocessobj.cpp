@@ -78,7 +78,7 @@ void ffprocessobj::process_stdout()
         QString ld = checkd.mid(c+10,11);
         //qDebug()<<"Duration"<<ld;
         QStringList qsl = ld.split(":");
-       // qDebug()<<ld.count()<<"Duration"<<ld;
+        // qDebug()<<ld.count()<<"Duration"<<ld;
         if (qsl.count()==3)
         {
 
@@ -102,7 +102,7 @@ void ffprocessobj::process_stdout()
         QString ld = checkd.mid(c+5,11);
         //qDebug()<<"Time"<<ld;
         QStringList qsl = ld.split(":");
-       // qDebug()<<ld.count()<<"Time"<<ld;
+        // qDebug()<<ld.count()<<"Time"<<ld;
         if (qsl.count()==3)
         {
 
@@ -131,7 +131,7 @@ void ffprocessobj::startprocess()
 
     this->setWindowTitle("ffmpeg "+process_list.join(" "));
     connect(process,SIGNAL(readyReadStandardError()),this,SLOT(process_stdout()));
-        connect(process,SIGNAL(readyReadStandardOutput()),this,SLOT(process_stdout()));
+    connect(process,SIGNAL(readyReadStandardOutput()),this,SLOT(process_stdout()));
     connect(process , SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(process_completed(int, QProcess::ExitStatus)));
     QStringList L;
     foreach(QString s ,process_list )
@@ -145,16 +145,26 @@ void ffprocessobj::startprocess()
     process->setReadChannel(QProcess::ProcessChannel::StandardOutput);
     ui->command_tb->append(args);
 }
-void ffprocessobj::process_completed(int, QProcess::ExitStatus)
+void ffprocessobj::process_completed(int ec , QProcess::ExitStatus es)
 {
-    Status = "completed ";
+
+    if(ec==0 && es==0)
+        Status = "completed ";
+    else
+    {
+        Status = "error ";
+    }
     emit finished();
     ui->progressBar->setValue(100);
     ui->p_lb->setText(QString::number(100)+"%");
     double time=  timer->elapsed()/1000.0;
 
     QMessageBox msgBox;
-    ui->status_lb->setText("Process Complete in "+QString::number( time)+"seconds");
+    if(ec==0 && es==0)
+        ui->status_lb->setText("Process Complete in "+QString::number( time)+"seconds");
+    else {
+        ui->status_lb->setText("Process Failed --- Error");
+    }
 
     //ffstdout->close();
 
