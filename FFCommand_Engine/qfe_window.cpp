@@ -220,7 +220,6 @@ void QFE_Window::process_stdout()
 QList<int>  QFE_Window::getfileinputs()
 {
 
-int x=0;
 QList<int> infilerows;
     for(int i=0; i<ui->file_table->rowCount();i++)
     {
@@ -708,7 +707,6 @@ void QFE_Window::parsecommand(QString incommand)
         inside = !inside;
     }
 
-  bool inputformatter =true;
   int inputendix=commandparts.lastIndexOf("-i");
   //qDebug()<<"last input index: "<<inputendix;
     int arginc=1;
@@ -954,7 +952,6 @@ QList<ffprocessobj  *> QFE_Window::getqueudinstances()
 
 {
     QList<ffprocessobj  *> tld;
-    int activeinstancecount =0;
     for (int i = 0;i<ffinstances.count();i++)
     {
 
