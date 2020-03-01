@@ -1,64 +1,61 @@
-## FFCommand Engine for easier use of FFmpeg binaries.
+# FFCommand_Engine for easier use of FFmpeg binaries
 
-Preloaded with preset commands from  [amiaopensource/ffmprovisr](https://github.com/amiaopensource/ffmprovisr)
+Preloaded with preset commands from [amiaopensource/ffmprovisr](https://github.com/amiaopensource/ffmprovisr).
 
 This is the initial version of the software for public release.
 
-Version v0.51 available for Mac and pc in the [release]( https://github.com/ColorlabMD/FFCommand_Engine/releases) tab.
+Version v0.51 available for macOS and Windows in the [release](https://github.com/ColorlabMD/FFCommand_Engine/releases) tab.
 
-The windows version may require msvc 2017 redistributable if it is not already installed. 
+The Windows version may require msvc 2017 redistributable if it is not already installed. 
 
 It is available here: [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
 
-### **What it does:**
+## What it does:
 
-**Constructs, stores, and operates based off of FFmpeg commands.**
+* Constructs, stores, and operates based off of FFmpeg commands.
 
-**Breaks down FFmpeg commands into a more easily understandable form.**
+* Breaks down FFmpeg commands into a more easily understandable form.
 
-**Allows those with limited terminal experience use FFmpeg easily.**
+* Allows those with limited terminal experience use FFmpeg easily.
 
-**Creates a queue of FFmpeg processes.**
+* Creates a queue of FFmpeg processes.
 
-**Allows for batch processing of files without scripting knowledge.**
+* Allows for batch processing of files without scripting knowledge.
 
-**Makes it easy to modify commands found online to adapt to your specific needs.**
+* Makes it easy to modify commands found online to adapt to your specific needs.
 
-### **What it doesn’t do:**
+## What it doesn’t do:
 
-**Create GUI for FFmpeg**
+* Create GUI for FFmpeg
 
-**It provides no syntax checking**
+* It provides no syntax checking
 
+## How to use
 
+1. Download FFmpeg binaries.
 
+1. Start FFCommand_Engine.
 
-**How to use**
+1. Set FFmpeg binaries location. File-&gt;Set FFmpeg Dir (macOS uses default /usr/local/bin most users will not need to change)
 
-1. Download FFmpeg binaries
+1. Load a preset or copy and paste a command using the parse command button.
 
-2. Start FFCommand_Engine
+1. Change input and output file.
 
-3. Set FFmpeg binaries location. File-&gt;Set FFmpeg Dir (mac uses default /usr/local/bin most users will not need to change)
+1. Add to queue.
 
-4. Load a preset or copy and paste a command using the parse command button.
+1. Start queue.
 
-5. Change input and output file.
-
-6. Add to queue.
-
-7. Start queue.
-
-**Batch Mode**
+### Batch Mode
 
 1. Add multiple input files.
 
-2. Check “Batch Mode” checkbox
+1. Check “Batch Mode” checkbox.
 
-3. Set Output Directory
+1. Set Output Directory.
 
-4. Set output file name appending
+1. Set output file name appending.
 
-5. Add to queue
+1. Add to queue.
 
-6. Start queue
+1. Start queue.
