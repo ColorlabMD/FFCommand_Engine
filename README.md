@@ -8,7 +8,7 @@ Version v0.51 available for Mac and pc in the [release]( https://github.com/Colo
 
 The windows version may require msvc 2017 redistributable if it is not already installed. 
 
-It is available here: [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
+It is available here: [https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads](https://support.microsoft.com/en-us/help/2977003/the-latest-sup  ported-visual-c-downloads)
 
 ### **What it does:**
 
@@ -37,17 +37,19 @@ It is available here: [https://support.microsoft.com/en-us/help/2977003/the-late
 
 1. Download FFmpeg binaries
 
-2. Start FFCommand_Engine
+2. [Download the compiled version of FFCommand_Engine](https://github.com/ColorlabMD/FFCommand_Engine/releases/tag/V0.5) for macOS or Windows.
 
-3. Set FFmpeg binaries location. File-&gt;Set FFmpeg Dir (mac uses default /usr/local/bin most users will not need to change)
+3. Start FFCommand_Engine
 
-4. Load a preset or copy and paste a command using the parse command button.
+4. Set FFmpeg binaries location. File-&gt;Set FFmpeg Dir (mac uses default /usr/local/bin most users will not need to change)
 
-5. Change input and output file.
+5. Load a preset or copy and paste a command using the parse command button.
 
-6. Add to queue.
+6. Change input and output file.
 
-7. Start queue.
+7. Add to queue.
+
+8. Start queue.
 
 **Batch Mode**
 
